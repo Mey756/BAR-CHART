@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Penjualan</title>
+    <script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.candy.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .chart-container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Laporan Penjualan</h1>
+    <div class="chart-container">
+        <div id="salesChart"></div>
+    </div>
+
+    <script>
+        FusionCharts.ready(function () {
+            const chart = new FusionCharts({
+                type: "mscolumn3d", // Grafik batang multi-series 3D
+                renderAt: "salesChart",
+                width: "100%",
+                height: "500",
+                dataFormat: "json",
+                dataSource: {
+                    chart: {
+                        caption: "Perbandingan Penjualan Tahunan",
+                        subCaption: "Tahun 2022 vs 2023",
+                        xAxisName: "Bulan",
+
+                        theme: "candy",
+                        animation: "1", // Animasi diaktifkan
+                        bgColor: "#1e3c72, #2a5298",
+                        bgAlpha: "100",
+                        bgAngle: "90",
+                        plotFillAlpha: "85",
+                        use3DLighting: "1",
+                        showPlotBorder: "0",
+                    },
+                    categories: [
+                        {
+                            category: [
+                                { label: "Januari" },
+                                { label: "Februari" },
+                                { label: "Maret" },
+                                { label: "April" },
+                                { label: "Mei" },
+                                { label: "Juni" },
+                                { label: "Juli" },
+                                { label: "Agustus" },
+                                { label: "September" },
+                                { label: "Oktober" },
+                                { label: "November" },
+                                { label: "Desember" },
+                            ],
+                        },
+                    ],
+                    dataset: [
+                        {
+                            seriesname: "2022",
+                            data: [
+                                { value: "4017" },
+                                { value: "6135" },
+                                { value: "7091" },
+                                { value: "5841" },
+                                { value: "5036" },
+                                { value: "4547" },
+                                { value: "3467" },
+                                { value: "3970" },
+                                { value: "6313" },
+                                { value: "3595" },
+                                { value: "9207" },
+                                { value: "5945" },
+                            ],
+                            color: "#00008B",
+                        },
+                        {
+                            seriesname: "2023",
+                            data: [
+                                { value: "2416" },
+                                { value: "4136" },
+                                { value: "7935" },
+                                { value: "8004" },
+                                { value: "9505" },
+                                { value: "5026" },
+                                { value: "6108" },
+                                { value: "6343" },
+                                { value: "9404" },
+                                { value: "9280" },
+                                { value: "9287" },
+                                { value: "8689" },
+                            ],
+                            color: "#FF0000",
+                        },
+                    ],
+                },
+            });
+            chart.render();
+        });
+    </script>
+    <footer>
+    <p>&copy; 2022 & 2023 Penjualan Dashboard.</p>
+    </footer>
+</body>
+</html>
